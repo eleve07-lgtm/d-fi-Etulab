@@ -117,30 +117,25 @@ function clearText() {
     }
 }
 
-// Configuration de la police
+// Configuration de la police : 4 polices lisibles pour les enfants dys
+const POLICES = {
+    verdana: "Verdana, Geneva, Tahoma, sans-serif",
+    arial: "Arial, Helvetica, sans-serif",
+    comic: "'Comic Sans MS', 'Comic Neue', cursive, sans-serif",
+    tahoma: "Tahoma, Verdana, sans-serif"
+};
+
 function setFont(style) {
-    const textarea = document.getElementById('userTextArea');
-    const viewer = document.getElementById('interactiveViewer');
-    const btnVerdana = document.getElementById('btnVerdana');
-    const btnDys = document.getElementById('btnDys');
+    const police = POLICES[style] || POLICES.verdana;
+    document.getElementById('userTextArea').style.fontFamily = police;
+    document.getElementById('interactiveViewer').style.fontFamily = police;
 
-    if (style === 'dys') {
-        textarea.style.fontFamily = "'Comic Sans MS', cursive, sans-serif";
-        viewer.style.fontFamily = "'Comic Sans MS', cursive, sans-serif";
-        textarea.style.letterSpacing = "0.08em";
-        viewer.style.letterSpacing = "0.08em";
-        
-        btnDys.className = "px-3 py-1.5 rounded-md font-semibold bg-white text-blue-600 shadow-sm transition-all";
-        btnVerdana.className = "px-3 py-1.5 rounded-md font-semibold text-slate-600 hover:text-slate-900 transition-all";
-    } else {
-        textarea.style.fontFamily = "'Verdana', Geneva, Tahoma, sans-serif";
-        viewer.style.fontFamily = "'Verdana', Geneva, Tahoma, sans-serif";
-        textarea.style.letterSpacing = "normal";
-        viewer.style.letterSpacing = "normal";
-
-        btnVerdana.className = "px-3 py-1.5 rounded-md font-semibold bg-white text-blue-600 shadow-sm transition-all";
-        btnDys.className = "px-3 py-1.5 rounded-md font-semibold text-slate-600 hover:text-slate-900 transition-all";
-    }
+    // Le bouton choisi est mis en évidence
+    document.querySelectorAll('.btn-police').forEach(btn => {
+        const actif = btn.dataset.font === style;
+        btn.classList.toggle('actif', actif);
+        btn.setAttribute('aria-pressed', actif);
+    });
 }
 
 // Gestion de la taille de police

@@ -28,9 +28,12 @@
             <!-- Réglages d'affichage rapide pour l'adaptation visuelle -->
             <div class="flex items-center gap-3 flex-wrap">
                 <!-- Choix de Police -->
-                <div class="flex bg-white/70 rounded-lg p-1 text-xs shadow-sm">
-                    <button id="btnVerdana" onclick="setFont('verdana')" class="px-3 py-1.5 rounded-md font-semibold bg-white text-blue-600 shadow-sm transition-all">Verdana</button>
-                    <button id="btnDys" onclick="setFont('dys')" class="px-3 py-1.5 rounded-md font-semibold text-slate-600 hover:text-slate-900 transition-all">Format Dys (Aéré)</button>
+                <div class="choix-police flex items-center gap-1 rounded-lg p-1 text-xs" role="group" aria-label="Choix de la police">
+                    <span class="font-semibold px-1">Police :</span>
+                    <button data-font="verdana" onclick="setFont('verdana')" class="btn-police actif" aria-pressed="true">Verdana</button>
+                    <button data-font="arial" onclick="setFont('arial')" class="btn-police" aria-pressed="false">Arial</button>
+                    <button data-font="comic" onclick="setFont('comic')" class="btn-police" aria-pressed="false">Comic Sans</button>
+                    <button data-font="tahoma" onclick="setFont('tahoma')" class="btn-police" aria-pressed="false">Tahoma</button>
                 </div>
 
                 <!-- Réglages de contraste de fond -->

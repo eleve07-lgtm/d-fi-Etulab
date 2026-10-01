@@ -6,8 +6,8 @@
 
 /* Styles de base */
 body {
-    font-family: 'Papyrus', fantasy !important;
-    background: linear-gradient(135deg, #39ff14 0%, #ff00cc 50%, #ffff00 100%) fixed !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    background: #f1f3f5 !important;
     color: #b8b8b8 !important;
     font-size: 11px;
     font-style: italic;
@@ -19,30 +19,48 @@ body {
 
 /* Barre du haut */
 .sticky {
-    background: #ff1a1a !important;
-    border-bottom: 6px dashed #0000ff !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #d1d5db !important;
 }
 
 /* Nom de l'application */
 .tracking-tight {
-    font-family: Impact, 'Arial Black', sans-serif !important;
-    color: #ffff00 !important;
-    font-size: 30px !important;
-    animation: clignote 0.6s steps(2) infinite;
-}
-@keyframes clignote {
-    50% { opacity: 0.15; }
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    color: #000000 !important;
+    font-size: 25px !important;
 }
 
-/* Panneaux */
-section {
-    transform: rotate(-1.2deg);
-    border: 5px dotted #00ffff !important;
-    margin: 37px 3px 11px 58px;
+/* Choix de la police (bleu, blanc) */
+.choix-police {
+    background: #ffffff;
+    border: 2px solid #1e40af;
+    color: #1e3a8a;
 }
-section:last-of-type {
-    transform: rotate(1.6deg);
-    margin-top: 5px;
+.btn-police {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background: #ffffff;
+    color: #1e3a8a;
+    font-weight: 600;
+}
+.btn-police:hover {
+    border-color: #1e40af;
+}
+.btn-police.actif {
+    background: #1e40af;
+    color: #ffffff;
+}
+/* Chaque bouton est écrit dans sa propre police */
+.btn-police[data-font="verdana"] { font-family: Verdana, Geneva, sans-serif !important; }
+.btn-police[data-font="arial"] { font-family: Arial, Helvetica, sans-serif !important; }
+.btn-police[data-font="comic"] { font-family: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif !important; }
+.btn-police[data-font="tahoma"] { font-family: Tahoma, Verdana, sans-serif !important; }
+
+/* Panneaux : bordure bleu foncé bien visible */
+section.bg-white,
+section > div.bg-white {
+    border: 2px solid #1e40af !important;
 }
 
 /* Textes */
@@ -55,13 +73,13 @@ section:last-of-type {
 
 /* Boutons principaux */
 .bg-blue-600 {
-    background: #ffff66 !important;
+    background: #1e40af !important;
     color: #ffffff !important;
 }
 
 /* Zone d'écriture et zone de correction */
 #userTextArea, #interactiveViewer {
-    font-family: 'Papyrus', fantasy !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 9pt !important;
     line-height: 1 !important;
     letter-spacing: -0.05em !important;
